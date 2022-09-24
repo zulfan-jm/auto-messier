@@ -34,7 +34,7 @@ void right_wheel_tick() {
 }
 
 int getLeftTick() {
-  if (digitalRead(ZF_left)==1) {
+  if (digitalRead(ZF_left)==1) { //ZF kiri 1 = maju
     return countLeft;
   } else {
     return -countLeft;
@@ -42,7 +42,7 @@ int getLeftTick() {
 }
 
 int getRightTick() {
-  if (digitalRead(ZF_right)==1) {
+  if (digitalRead(ZF_right)==0) { //ZF kanan 0 = maju
     return countRight;
   } else {
     return -countRight;
@@ -73,23 +73,36 @@ void setup() {
   digitalWrite(VR_right, HIGH);
 
 }
-
+bool ZF_value=false;
 void loop() {
   // put your main code here, to run repeatedly:
-  bool ZF_value;
   getLeftTick();
   getRightTick();
 
   if(Serial.available()){
-    ZF_value = Serial.read();
+    int _ZF_value = Serial.read();
+    switch (_ZF_value) {
+      case '0':
+        ZF_value = false;
+        break;
+      
+      case '1':
+        ZF_value = true;
+        break;
+      
+      default:
+        break;
+    }
+
     Serial.print("ZF input: ");
     Serial.println(ZF_value);
-    digitalWrite(ZF_left, ZF_value);
+    digitalWrite(ZF_left, !ZF_value); //nilai ZF kiri harus berkebalikan dengan kanan
     digitalWrite(ZF_right, ZF_value);
     Serial.print("ZF left: ");
     Serial.println(digitalRead(ZF_left));
     Serial.print("ZF right: ");
     Serial.println(digitalRead(ZF_right));
+    Serial.println("-------");
   }
 
   if(millis() - last_millis > 100){
