@@ -28,6 +28,6 @@
     </node> -->
 
     <!-- <node pkg="tf" type="static_transform_publisher" name="laser_broadcaster" args="0 0 0 0 0 0 1 camera_link laser_link_2 100" /> -->
-    <!-- <arg name="rviz_file" default="$(find rovit_navsys)/rviz/depth.rviz"/> -->
+    <!-- <arg name="rviz_file" default="$(find rovid_1)/rviz/depth.rviz"/> -->
     <!-- <node pkg="rviz" type="rviz" name="rviz" args="-d $(arg rviz_file)" required="true"/> -->
 </launch>

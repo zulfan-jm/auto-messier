@@ -32,7 +32,7 @@ selective_resampling: true
 odom_frame_id : odom
 base_frame_id : base_link
 global_frame_id : map
-tf_broadcast : true
+tf_broadcast : false
 
 initial_pose_x : -0.2698514157578849
 initial_pose_y : -0.01831097715886454

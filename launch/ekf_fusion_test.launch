@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<launch>
+    <include file="$(find rovid_1)/launch/nav_imu_init.launch" />
+    <include file="$(find rovid_1)/launch/auto_nav.launch" />
+</launch>

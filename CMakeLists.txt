@@ -51,6 +51,8 @@ find_package(catkin REQUIRED COMPONENTS
 add_message_files(
   FILES
   debug.msg
+  hedge_pos_ang.msg
+  hedge_imu_fusion.msg
   # Message2.msg
 )
 
@@ -140,6 +142,7 @@ add_executable(odom_node src/odom_from_arduino.cpp)
 add_executable(set_goal src/set_goal.cpp)
 add_executable(set_sequence src/set_sequence.cpp)
 add_executable(new_odom src/new_odom.cpp)
+add_executable(hedge_msg_adapter src/hedge_msg_adapter.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -150,12 +153,15 @@ add_executable(new_odom src/new_odom.cpp)
 ## Add cmake target dependencies of the executable
 ## same as for the library above
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# add_dependencies(hedge_msg_adapter marvelmind_nav_generate_messages_cpp)
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(odom_node ${catkin_LIBRARIES})
 target_link_libraries(set_goal ${catkin_LIBRARIES})
 target_link_libraries(set_sequence ${catkin_LIBRARIES})
 target_link_libraries(new_odom ${catkin_LIBRARIES})
+target_link_libraries(hedge_msg_adapter ${catkin_LIBRARIES})
+
 #############
 ## Install ##
 #############
