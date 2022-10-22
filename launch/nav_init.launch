@@ -21,9 +21,7 @@
 
     <node pkg="rosserial_python" type="serial_node.py" name="serial_node" unless="$(arg use_filebag)">
         <param name="port" value="/dev/ttyUSB0"/>
-        <param name="port2" value="/dev/ttyACM0"/>
         <param name="baud" value="576000"/>
-        <!-- <param name="baud2" value="115200"/> -->
     </node>
 
     <node pkg="rosbag" type="play" name="play" output="screen" args="--clock $(arg path)$(arg file_1).bag" if="$(arg use_rosbag)"/>
@@ -39,6 +37,7 @@
 
     <include file="$(find rovid_1)/launch/tf_transforms.launch"/>
     <include file="$(find rovid_1)/launch/localization.launch" if="$(arg use_amcl)"/>
+    <include file="$(find rovid_1)/launch/marvelmind.launch"/>
     <!-- <include file="$(find rovid_1)/launch/auto_nav.launch"/> -->
     <!-- <include file="$(find rovid_1)/launch/visualization_odom.launch"/> -->
 
