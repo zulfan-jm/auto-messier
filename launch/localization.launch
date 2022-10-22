@@ -2,10 +2,11 @@
 <launch>
     <arg name="use_global_fusion" default="false"/>
     
-    <arg name="map_file" value="$(find rovid_1)/maps/map_full_labandhall.yaml"/>
+    <arg name="map_file" value="$(find rovid_1)/maps/map_lobby2.yaml"/>
     <node pkg="amcl" type="amcl" name="amcl">
         <rosparam file="$(find rovid_1)/params/amcl_params.yaml" command="load" unless="$(arg use_global_fusion)"/>
         <rosparam file="$(find rovid_1)/config/amcl_fusion.yaml" command="load" if="$(arg use_global_fusion)" />
+        <remap from="odom" to="odometry/filtered" />
     </node>
     <node pkg="map_server" type="map_server" name="map_server" args="$(arg map_file)"/>
 </launch>

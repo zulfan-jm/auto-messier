@@ -1,6 +1,6 @@
 #include "ros/ros.h"
-#include "rovid_1/hedge_imu_fusion.h"
-#include "rovid_1/hedge_pos_ang.h"
+#include "marvelmind_nav/hedge_imu_fusion.h"
+#include "marvelmind_nav/hedge_pos_ang.h"
 #include "sensor_msgs/Imu.h"
 #include "geometry_msgs/PoseWithCovarianceStamped.h"
 #include "tf/transform_broadcaster.h"
@@ -29,7 +29,7 @@ public:
     init_covariances(nh_private_);
   }
 
-  void imu_fusion_callback(const rovid_1::hedge_imu_fusion::ConstPtr& imu_fusion_msg)
+  void imu_fusion_callback(const marvelmind_nav::hedge_imu_fusion::ConstPtr& imu_fusion_msg)
   {
     // Populate header
     imu_out_.header.stamp = ros::Time::now();
@@ -54,7 +54,7 @@ public:
     hedge_imu_pub_.publish(imu_out_);
   }
 
-  void pos_ang_callback(const rovid_1::hedge_pos_ang::ConstPtr& pos_ang_msg)
+  void pos_ang_callback(const marvelmind_nav::hedge_pos_ang::ConstPtr& pos_ang_msg)
   {
     // Populate header
     pose_out_.header.stamp = ros::Time::now();

@@ -11,12 +11,12 @@
     <!-- robot localization -->
     <node pkg="robot_localization" type="ekf_localization_node" name="robot_localization_map">
         <rosparam file="$(find rovid_1)/params/robot_localization_map.yaml" command="load"/>
-        <remap from="odometry/filtered" to="odometry/map" />
+        <!-- <remap from="odometry/filtered" to="odometry/map" /> -->
     </node>
     <node pkg="robot_localization" type="ekf_localization_node" name="robot_localization_odom">
         <rosparam file="$(find rovid_1)/params/imu_ekf.yaml" command="load" if="$(arg use_mpu)"/>
         <rosparam file="$(find rovid_1)/params/imu_ekf_filtered.yaml" command="load" if="$(arg use_madgwick)"/>
         <rosparam file="$(find rovid_1)/params/imu_ekf_filtered.yaml" command="load" if="$(arg use_complementary)"/>
-        <remap from="odometry/filtered" to="odometry/imu" />
+        <!-- <remap from="odometry/filtered" to="odometry/imu" /> -->
     </node>
 </launch>

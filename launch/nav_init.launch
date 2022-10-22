@@ -7,7 +7,7 @@
     <arg name="file_1" default="imuscanodom"/>
 
     <arg name="new_path" default="/home/rovit/ta-zul/src/rovid_1/"/>
-    <arg name="use_filebag" default="true"/>
+    <arg name="use_filebag" default="false"/>
 
     <node name="rplidarNode"          pkg="rplidar_ros"  type="rplidarNode" output="screen" unless="$(arg use_filebag)">
         <param name="serial_port"         type="string" value="/dev/ttyUSB1"/>
@@ -21,8 +21,11 @@
 
     <node pkg="rosserial_python" type="serial_node.py" name="serial_node" unless="$(arg use_filebag)">
         <param name="port" value="/dev/ttyUSB0"/>
+        <param name="port2" value="/dev/ttyACM0"/>
         <param name="baud" value="576000"/>
+        <!-- <param name="baud2" value="115200"/> -->
     </node>
+
     <node pkg="rosbag" type="play" name="play" output="screen" args="--clock $(arg path)$(arg file_1).bag" if="$(arg use_rosbag)"/>
 
     <node pkg="rovid_1" type="new_odom" name="odom_from_arduino">

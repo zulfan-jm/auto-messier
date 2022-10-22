@@ -7,6 +7,6 @@
     <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" />
 
     <!-- Marvelmind beacon tf -->
-    <node pkg="tf" type="static_transform_publisher" name="beacon_imu_broadcaster" args="0 0 0 0 0 0 base_link beacon_imu_link 100" />
-    <node pkg="tf" type="static_transform_publisher" name="beacon_map_broadcaster" args="0 0 0 0 0 0 beacon_map map 100" />
+    <node pkg="tf" type="static_transform_publisher" name="beacon_imu_broadcaster" args="38 18 99 0 0 0 base_link beacon_imu_link 100" />
+    <node pkg="tf" type="static_transform_publisher" name="beacon_map_broadcaster" args="-1.325 1.145 190 0 0 0 beacon_map map 100" />
 </launch>

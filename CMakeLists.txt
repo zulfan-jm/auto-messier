@@ -12,6 +12,7 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   rviz
   message_generation
+  marvelmind_nav
 )
 
 ## System dependencies are found with CMake's conventions
@@ -51,8 +52,8 @@ find_package(catkin REQUIRED COMPONENTS
 add_message_files(
   FILES
   debug.msg
-  hedge_pos_ang.msg
-  hedge_imu_fusion.msg
+  # hedge_pos_ang.msg
+  # hedge_imu_fusion.msg
   # Message2.msg
 )
 
@@ -107,7 +108,7 @@ generate_messages(
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-  CATKIN_DEPENDS message_runtime
+  CATKIN_DEPENDS message_runtime marvelmind_nav
  INCLUDE_DIRS include
  LIBRARIES rovit_navsys
 #  CATKIN_DEPENDS roscpp rospy rviz
