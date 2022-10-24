@@ -1,4 +1,5 @@
-frequency: 100
+frequency: 10
+
 sensor_timeout: 0.2
 two_d_mode: true
 transform_time_offset: 0.0

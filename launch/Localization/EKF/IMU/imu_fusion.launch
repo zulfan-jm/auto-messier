@@ -5,9 +5,9 @@
 <arg name="use_complementary" default="false"/>
     <!-- robot localization -->
     <node pkg="robot_localization" type="ekf_localization_node" name="robot_localization_odom">
-        <rosparam file="$(find rovid_1)/params/imu_ekf.yaml" command="load" if="$(arg use_mpu)"/>
-        <rosparam file="$(find rovid_1)/params/imu_ekf_filtered.yaml" command="load" if="$(arg use_madgwick)"/>
-        <rosparam file="$(find rovid_1)/params/imu_ekf_filtered.yaml" command="load" if="$(arg use_complementary)"/>
+        <rosparam file="$(find rovid_1)/params/EKF/robot_localization_odom.yaml" command="load" if="$(arg use_mpu)"/>
+        <rosparam file="$(find rovid_1)/params/IMU/imu_ekf_filtered.yaml" command="load" if="$(arg use_madgwick)"/>
+        <rosparam file="$(find rovid_1)/params/IMU/imu_ekf_filtered.yaml" command="load" if="$(arg use_complementary)"/>
         <!-- <remap from="odometry/filtered" to="odometry/imu" /> -->
     </node>
 </launch>
