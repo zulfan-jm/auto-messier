@@ -1,16 +1,12 @@
 <?xml version="1.0"?>
 <launch>
+    <arg name="use_filebag" default="false"/>
+
     <node pkg="marvelmind_nav" type="hedge_rcv_bin" name="marvel_pkg">
         <!-- <param name="portFileName" value="/dev/ttyACM1"/>
         <param name="baudrate" value="500000"/> -->
     </node>
 
-     <!-- Marvelmind beacon tf -->
-    <node pkg="tf" type="static_transform_publisher" name="beacon_imu_broadcaster" args="0.38 0.18 0.99 0 0 0 base_link beacon_imu_link 100" />
-    <!-- <node pkg="tf" type="static_transform_publisher" name="beacon_map_broadcaster" args="-0.888 -5.444 190 0 0 -0.649 beacon_map map 100" /> -->
-
-   <!-- <node pkg="tf" type="static_transform_publisher" name="beacon_imu_broadcaster" args="0 0 0 0 0 0 base_link beacon_imu_link 100" /> -->
-    <node pkg="tf" type="static_transform_publisher" name="beacon_map_broadcaster" args="0 0 0 0 0 0 beacon_map map 100" />
     <!-- hedge msg adapter -->
     <node pkg="rovid_1" type="hedge_msg_adapter" name="hedge_msg_adapter" clear_params="true">
         <rosparam command="load" file="$(find rovid_1)/params/EKF/covariances.yaml" />
