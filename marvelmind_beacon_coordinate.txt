@@ -1,0 +1,33 @@
+header: beacon 3
+  seq: 0
+  stamp: 
+    secs: 1666421483
+    nsecs:  93286751
+  frame_id: "map"
+point: 
+  x: -1.2152105569839478
+  y: 1.412376880645752
+  z: -0.001434326171875
+---
+header: beacon 2
+  seq: 1
+  stamp: 
+    secs: 1666421505
+    nsecs: 605836415
+  frame_id: "map"
+point: 
+  x: -0.8777143955230713
+  y: -5.444053649902344
+  z: -0.001434326171875
+---
+header: beacon 4
+  seq: 2
+  stamp: 
+    secs: 1666421512
+    nsecs: 388627109
+  frame_id: "map"
+point: 
+  x: 4.497915267944336
+  y: -0.5394697785377502
+  z: -0.001434326171875
+---
