@@ -108,28 +108,28 @@ void sequence_record(){
             case '1':
             room_count++;
             room_seq[i] = 1;
-            px_seq [i] = -3.204;
-            py_seq [i] = 12.631;
-            oz_seq [i] = 0.454;
-            ow_seq [i] = 0.89;
+            px_seq [i] = 2.9698095321655273;
+            py_seq [i] = 0.01852560043334961;
+            oz_seq [i] = -0.7035725653800884;
+            ow_seq [i] = 0.710623420135082;
             break;
         
             case '2':
             room_count++;
             room_seq[i] = 2;
-            px_seq [i] = -3.22;
-            py_seq [i] = 12.435;
-            oz_seq [i] = -0.672;
-            ow_seq [i] = 0.739;
+            px_seq [i] = 2.968283176422119;
+            py_seq [i] = -4.973784446716309;
+            oz_seq [i] = -0.9999751312456314;
+            ow_seq [i] = 0.0070524386053544205;
             break;
             
             case '3':
             room_count++;
             room_seq[i] = 3;
-            px_seq [i] = 14.041;
-            py_seq [i] = -4.142;
-            oz_seq [i] = -0.293;
-            ow_seq [i] = 0.955;
+            px_seq [i] = -0.01239001750946045;
+            py_seq [i] = -4.995876312255859;
+            oz_seq [i] = 0.7078620014619394;
+            ow_seq [i] = 0.7063507534407373;
             break;
 
             case '4':
@@ -137,44 +137,8 @@ void sequence_record(){
             room_seq[i] = 4;
             px_seq [i] = 14.214;
             py_seq [i] = -4.201;
-            oz_seq [i] = -0.914;
-            ow_seq [i] = 0.405;
-            break;
-
-            case '5':
-            room_count++;
-            room_seq[i] = 5;
-            px_seq [i] = 24.873;
-            py_seq [i] = -11.491;
-            oz_seq [i] = -0.318;
-            ow_seq [i] = 0.948;
-            break;
-
-            case '6':
-            room_count++;
-            room_seq[i] = 6;
-            px_seq [i] = 24.655;
-            py_seq [i] = -11.521;
-            oz_seq [i] = 0.953;
-            ow_seq [i] = 0.299;
-            break;
-
-            case '7':
-            room_count++;
-            room_seq[i] = 7;
-            px_seq [i] = 14.073;
-            py_seq [i] = -4.244;
-            oz_seq [i] = 0.944;
-            ow_seq [i] = 0.329;
-            break;
-
-            case '8':
-            room_count++;
-            room_seq[i] = 8;
-            px_seq [i] = 0.902;
-            py_seq [i] = 7.666;
-            oz_seq [i] = 0.970;
-            ow_seq [i] = 0.242;
+            oz_seq [i] = 0;
+            ow_seq [i] = 1;
             break;
             
             case 'n':

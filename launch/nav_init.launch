@@ -17,7 +17,9 @@
         <arg name="use_odom_tf" value="false"/>
         <arg name="use_filebag" value="$(arg use_filebag)"/>
     </include>
+
     <include file="$(find rovid_1)/launch/Localization/AMCL/Lidar/lidar2d.launch" unless="$(arg use_filebag)"/>
+    
     <include file="$(find rovid_1)/launch/Localization/EKF/IMU/imu_fusion.launch">
         <arg name="use_mpu" value="true"/>
         <arg name="use_madgwick" value="false"/>

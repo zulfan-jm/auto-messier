@@ -2,10 +2,7 @@
 <launch>
     <arg name="use_filebag" default="false"/>
 
-    <node pkg="marvelmind_nav" type="hedge_rcv_bin" name="marvel_pkg">
-        <!-- <param name="portFileName" value="/dev/ttyACM1"/>
-        <param name="baudrate" value="500000"/> -->
-    </node>
+    <node pkg="marvelmind_nav" type="hedge_rcv_bin" name="marvelmind_nav"/>
 
     <!-- hedge msg adapter -->
     <node pkg="rovid_1" type="hedge_msg_adapter" name="hedge_msg_adapter" clear_params="true">
