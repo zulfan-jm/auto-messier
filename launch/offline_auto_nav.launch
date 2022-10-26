@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-    <include file="$(find rovid_1)/launch/nav_init.launch">
-    <arg name="use_autonav" value="true"/>
-    </include>
-    <include file="$(find rovid_1)/launch/move_base.launch" />
-    <!-- <include file="$(find rovid_1)/launch/localization.launch" /> -->
-    <include file="$(find rovid_1)/launch/Visualization/visualization_auto_nav.launch" />
-</launch>
