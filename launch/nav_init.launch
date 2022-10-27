@@ -26,7 +26,7 @@
         <arg name="use_complementary" value="false"/>
     </include>
 
-    <include file="$(find rovid_1)/launch/Visualization/visualization_localization.launch" unless="$(arg use_autonav)"/>
+    <include file="$(find rovid_1)/launch/Visualization/visualization_localization.launch" if="$(arg use_autonav)"/>
 
     <node pkg="rosbag" type="play" name="navigation" output="screen" args="--clock $(arg new_path)nav_success.bag" if="$(arg use_filebag)"/>
     <node pkg="rosbag" type="play" name="marvelmind" output="screen" args="--clock $(arg new_path)hedge_marvelmind.bag" if="$(arg use_filebag)"/>
