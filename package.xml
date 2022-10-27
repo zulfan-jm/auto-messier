@@ -55,6 +55,10 @@
   <exec_depend>rospy</exec_depend>
   <exec_depend>rviz</exec_depend>
   <exec_depend>actionlib</exec_depend>
+
+  <build_depend>marvelmind_nav</build_depend>
+  <build_export_depend>marvelmind_nav</build_export_depend>
+  <exec_depend>marvelmind_nav</exec_depend>
 <!--  The export tag contains other, unspecified, tags  -->
   <export>
 <!--  Other tools can request additional information be placed here  -->

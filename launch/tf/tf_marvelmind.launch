@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+     <!-- Marvelmind beacon tf -->
+    <node pkg="tf" type="static_transform_publisher" name="beacon_imu_broadcaster" args="0.38 0.18 0.99 0 0 0 base_link beacon_imu_link 100" />
+    <!-- <node pkg="tf" type="static_transform_publisher" name="beacon_map_broadcaster" args="-0.888 -5.444 190 0 0 -0.649 beacon_map map 100" /> -->
+
+   <!-- <node pkg="tf" type="static_transform_publisher" name="beacon_imu_broadcaster" args="0 0 0 0 0 0 base_link beacon_imu_link 100" /> -->
+    <node pkg="tf" type="static_transform_publisher" name="beacon_map_broadcaster" args="0 0 0 0 0 0 beacon_map map 100" />
+</launch>

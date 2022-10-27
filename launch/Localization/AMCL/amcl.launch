@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="use_global_fusion" default="false"/>
+    
+    <node pkg="amcl" type="amcl" name="amcl">
+        <rosparam file="$(find rovid_1)/params/AMCL/amcl_params.yaml" command="load" unless="$(arg use_global_fusion)"/>
+        <rosparam file="$(find rovid_1)/config/amcl_fusion.yaml" command="load" if="$(arg use_global_fusion)" />
+        <remap from="odom" to="odometry/filtered" />
+    </node>
+</launch>
