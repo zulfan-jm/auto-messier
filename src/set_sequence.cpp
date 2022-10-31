@@ -108,37 +108,37 @@ void sequence_record(){
             case '1':
             room_count++;
             room_seq[i] = 1;
-            px_seq [i] = 2.9698095321655273;
-            py_seq [i] = 0.01852560043334961;
-            oz_seq [i] = -0.7035725653800884;
-            ow_seq [i] = 0.710623420135082;
+            px_seq [i] = 5.0;
+            py_seq [i] = 0.0;
+            oz_seq [i] = -0.7;
+            ow_seq [i] = 0.7;
             break;
         
             case '2':
             room_count++;
             room_seq[i] = 2;
-            px_seq [i] = 2.968283176422119;
-            py_seq [i] = -4.973784446716309;
-            oz_seq [i] = -0.9999751312456314;
-            ow_seq [i] = 0.0070524386053544205;
+            px_seq [i] = 5.0;
+            py_seq [i] = -3.0;
+            oz_seq [i] = -1.0;
+            ow_seq [i] = 0.0;
             break;
             
             case '3':
             room_count++;
             room_seq[i] = 3;
-            px_seq [i] = -0.01239001750946045;
-            py_seq [i] = -4.995876312255859;
-            oz_seq [i] = 0.7078620014619394;
-            ow_seq [i] = 0.7063507534407373;
+            px_seq [i] = -0.0;
+            py_seq [i] = -3.0;
+            oz_seq [i] = 0.7;
+            ow_seq [i] = 0.7;
             break;
 
             case '4':
             room_count++;
-            room_seq[i] = 4;
-            px_seq [i] = 14.214;
-            py_seq [i] = -4.201;
-            oz_seq [i] = 0;
-            ow_seq [i] = 1;
+            room_seq[i] = 0.0;
+            px_seq [i] = 0.0;
+            py_seq [i] = 0.0;
+            oz_seq [i] = 0.0;
+            ow_seq [i] = 1.0;
             break;
             
             case 'n':

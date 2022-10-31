@@ -1,4 +1,79 @@
-rostopic pub /move_base_simple/goal geometry_msgs/PoseStamped '{header: {stamp: now, frame_id: "map"}, pose: {position: {x: 3, y: 0.0, z: 0.0}, orientation: {w: 1.0}}}' || '{header: {stamp: now, frame_id: "map"}, pose: {position: {x: 3, y: 0.0, z: 0.0}, orientation: {w: 0.7}}}' || '{header: {stamp: now, frame_id: "map"}, pose: {position: {x: 3, y: -5, z: 0.0}, orientation: {w: 0.7}}}' || '{header: {stamp: now, frame_id: "map"}, pose: {position: {x: 3, y: -5, z: 0.0}, orientation: {w: 0.0}}}' || '{header: {stamp: now, frame_id: "map"}, pose: {position: {x: 0.0, y: -5, z: 0.0}, orientation: {w: 0.0}}}' || '{header: {stamp: now, frame_id: "map"}, pose: {position: {x: 0.0, y: -5, z: 0.0}, orientation: {w: 0.7}}}' || '{header: {stamp: now, frame_id: "map"}, pose: {position: {x: 0.0, y: 0.0, z: 0.0}, orientation: {w: 0.7}}}' || '{header: {stamp: now, frame_id: "map"}, pose: {position: {x: 0.0, y: 0.0, z: 0.0}, orientation: {w: 1.0}}}'
+header: 
+  seq: 0
+  stamp: 
+    secs: 1667197190
+    nsecs: 313489134
+  frame_id: "map"
+pose: 
+  pose: 
+    position: 
+      x: 4.993793487548828
+      y: 0.030993103981018066
+      z: 0.0
+    orientation: 
+      x: 0.0
+      y: 0.0
+      z: -0.7053518651331273
+      w: 0.7088573526127937
+  covariance: [0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.06853892326654787]
+---
+header: 
+  seq: 1
+  stamp: 
+    secs: 1667197199
+    nsecs: 859908284
+  frame_id: "map"
+pose: 
+  pose: 
+    position: 
+      x: 4.969462871551514
+      y: -2.9969170093536377
+      z: 0.0
+    orientation: 
+      x: 0.0
+      y: 0.0
+      z: -0.9999802724979251
+      w: 0.006281290868567611
+  covariance: [0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.06853892326654787]
+---
+header: 
+  seq: 2
+  stamp: 
+    secs: 1667197207
+    nsecs: 277885008
+  frame_id: "map"
+pose: 
+  pose: 
+    position: 
+      x: -0.020571470260620117
+      y: -2.9935810565948486
+      z: 0.0
+    orientation: 
+      x: 0.0
+      y: 0.0
+      z: 0.7062020002808315
+      w: 0.7080104058552759
+  covariance: [0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.06853892326654787]
+---
+header: 
+  seq: 3
+  stamp: 
+    secs: 1667197212
+    nsecs: 235949134
+  frame_id: "map"
+pose: 
+  pose: 
+    position: 
+      x: -0.04678177833557129
+      y: 0.024071693420410156
+      z: 0.0
+    orientation: 
+      x: 0.0
+      y: 0.0
+      z: 0.002094013483086198
+      w: 0.9999978075513629
+  covariance: [0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.06853892326654787]
+---
 
 
-rostopic pub /move_base_simple/goal geometry_msgs/PoseStamped '{header: {stamp: now, frame_id: "map"}, pose: {position: {x: 3, y: 0.0, z: 0.0}, orientation: {w: 1.0}}}' || rostopic pub /move_base_simple/goal geometry_msgs/PoseStamped '{header: {stamp: now, frame_id: "map"}, pose: {position: {x: 3, y: 0.0, z: 0.0}, orientation: {w: 0.7}}}'
+rosbag record /amcl_pose /hedge_pose /odom /odometry/filtered

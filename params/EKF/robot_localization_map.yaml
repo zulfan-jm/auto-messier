@@ -11,24 +11,26 @@ transform_time_offset: 0.1
 smooth_lagged_data: true
 dynamic_process_noise_covariance: false
 
-odom0: /odometry/imu
+# publish_tf: true
+
+odom0: /odom
 odom0_config: [false, false, false,
                false, false, false,
                true, true, false,
                false, false, true,
                false, false, false]
                
-# odom0_differential: true
+odom0_differential: true
 
-# imu0: /imu/data_raw
-# imu0_config: [false, false, false,
-#               false, false, true,
-#               false, false, false,
-#               false, false, true,
-#               false, false, false]
+imu0: /imu/data_raw
+imu0_config: [false, false, false,
+              false, false, true,
+              false, false, false,
+              false, false, true,
+              false, false, false]
 
-# imu0_differential: true
-# imu0_relative: true 
+imu0_differential: true
+imu0_relative: true 
 
 pose0: hedge_pose # Hedgehog!
 pose0_config: [true,  true,  false,
@@ -38,7 +40,7 @@ pose0_config: [true,  true,  false,
                false, false, false]
 
 pose0_rejection_threshold: 3
-pose0_differential: true
+# pose0_differential: true
 
 # Since AMCL is more likely to fail than the beacons, you might want to treat the beacons
 # as a primary source, and set pose1_differential: true
@@ -52,6 +54,7 @@ pose1_config: [true,  true, false,
                false, false, false]
 
 pose1_rejection_threshold: 2
+pose1_differential: true
 
 # poseN_rejection_threshold: (YOU MIGHT WANT THIS. If it's above the stated threshold value, the EKF will ignore the reading) (Defaults to numeric_limits<double>::max())
 
