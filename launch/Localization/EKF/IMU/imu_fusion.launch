@@ -8,6 +8,6 @@
         <rosparam file="$(find rovid_1)/params/EKF/robot_localization.yaml" command="load" if="$(arg use_mpu)"/>
         <rosparam file="$(find rovid_1)/params/IMU/imu_ekf_filtered.yaml" command="load" if="$(arg use_madgwick)"/>
         <rosparam file="$(find rovid_1)/params/IMU/imu_ekf_filtered.yaml" command="load" if="$(arg use_complementary)"/>
-        <!-- <remap from="odometry/filtered" to="odometry/imu" /> -->
+        <remap from="odometry/filtered" to="odometry/imu" />
     </node>
 </launch>
