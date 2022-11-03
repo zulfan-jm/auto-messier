@@ -68,6 +68,7 @@ pose1_config: [true,  true,  false,
 
 pose1_rejection_threshold: 0.5
 pose1_differential: true
+pose1_relative: true 
 pose1_queue_size: 10
 
 
