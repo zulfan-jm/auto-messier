@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
 <launch>
     <arg name="rviz_conf" default="$(find rovid_1)/rviz/navigation.rviz"/>
-    <node pkg="rviz" type="rviz" name="rviz_nav" output="screen" args="-d $(arg rviz_conf)" required="true"/>
+    <node pkg="rviz" type="rviz" name="rviz_nav" output="screen" args="-d $(arg rviz_conf)" required="true">
+        <remap from="/move_base_simple/goal" to="/goal" />
+    </node>
 </launch>

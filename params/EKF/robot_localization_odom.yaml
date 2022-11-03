@@ -10,16 +10,19 @@ odom0_config: [false, false, false,
                false, false, false]
                
 odom0_differential: true
+odom0_queue_size: 20
 
 imu0: /imu/data_raw
 imu0_config: [false, false, false,
               false, false, true,
               false, false, false,
               false, false, true,
-              false, false, false]
+              true, false, false]
 
 imu0_differential: true
 imu0_relative: true 
+imu0_queue_size: 20
+imu0_remove_gravitational_acceleration: false
 
 # transform_time_offset: 0.1
 
@@ -28,6 +31,12 @@ base_link_frame: base_link
 world_frame: odom
 publish_tf: true
 # predict_to_current_time: true
+
+# initial_state: [0.0,  0.0,  0.0,
+#                 0.0,  0.0,  0.0,
+#                 0.0,  0.0,  0.0,
+#                 0.0,  0.0,  0.0,
+#                 0.0,  0.0,  0.0]
 
 process_noise_covariance: [0.05, 0,    0,    0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
                            0,    0.05, 0,    0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
