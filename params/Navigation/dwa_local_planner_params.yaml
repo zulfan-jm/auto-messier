@@ -29,9 +29,9 @@ DWAPlannerROS:
   acc_lim_y: 0.0
 
 # Goal Tolerance Parametes
-  xy_goal_tolerance: 0.35
-  yaw_goal_tolerance: 0.1
-  latch_xy_goal_tolerance: true
+  xy_goal_tolerance: 0.4
+  yaw_goal_tolerance: 0.3
+  latch_xy_goal_tolerance: false
 
 # Forward Simulation Parameters
   # sim_time: 3.0                  # The amount of time to forward-simulate trajectories in seconds
