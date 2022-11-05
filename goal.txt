@@ -76,4 +76,4 @@ pose:
 ---
 
 
-rosbag record /amcl_pose /hedge_pose /odom /odometry/filtered /odometry/imu
+rosbag record /amcl_pose /hedge_pose /imu/data_raw /odom /odometry/filtered /odometry/imu
