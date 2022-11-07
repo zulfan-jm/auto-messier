@@ -13,37 +13,29 @@ smooth_lagged_data: true
 dynamic_process_noise_covariance: true
 
 # publish_tf: true
-odom0: /odometry/imu
+
+odom0: /odom
 odom0_config: [false, false, false,
-               false, false, true,
+               false, false, false,
                true, true, false,
                false, false, true,
-               true, false, false]
+               false, false, false]
                
-# odom0_differential: true
-odom0_queue_size: 40
+odom0_differential: true
+odom0_relative: true
+odom0_queue_size: 20
 
-# odom0: /odom
-# odom0_config: [false, false, false,
-#                false, false, false,
-#                true, true, false,
-#                false, false, true,
-#                false, false, false]
-               
-# odom0_differential: true
-# odom0_queue_size: 20
+imu0: /imu/data_raw
+imu0_config: [false, false, false,
+              false, false, true,
+              false, false, false,
+              false, false, true,
+              true, false, false]
 
-# imu0: /imu/data_raw
-# imu0_config: [false, false, false,
-#               false, false, true,
-#               false, false, false,
-#               false, false, true,
-#               true, false, false]
-
-# imu0_differential: true
-# imu0_relative: true 
-# imu0_queue_size: 20
-# imu0_remove_gravitational_acceleration: false
+imu0_differential: true
+imu0_relative: true 
+imu0_queue_size: 20
+imu0_remove_gravitational_acceleration: false
 
 # Since AMCL is more likely to fail than the beacons, you might want to treat the beacons
 # as a primary source, and set pose1_differential: true
@@ -56,9 +48,9 @@ pose0_config: [true,  true,  false,
                false, false, false,
                false, false, false]
 
-pose0_rejection_threshold: 2
-pose0_differential: false
-pose0_relative: false
+pose0_rejection_threshold: 3
+pose0_differential: true
+pose0_relative: true
 pose0_queue_size: 10
 
 pose1: amcl_pose # AMCL!
@@ -68,10 +60,22 @@ pose1_config: [true,  true, false,
                false, false, false,
                false, false, false]
 
-pose1_rejection_threshold: 3
-pose0_differential: true
+pose1_rejection_threshold: 2
+pose1_differential: true
+pose1_relative: true
 pose1_queue_size: 10
 
+# pose2: /odometry/imu
+# pose2_config: [true, true, false,
+#                false, false, false,
+#                false, false, false,
+#                false, false, false,
+#                false, false, false]
+               
+# pose2_rejection_threshold: 0.5
+# pose2_differential: true
+# pose2_relative: true
+# pose2_queue_size: 20
 # poseN_rejection_threshold: (YOU MIGHT WANT THIS. If it's above the stated threshold value, the EKF will ignore the reading) (Defaults to numeric_limits<double>::max())
 
 # [ADVANCED] The process noise covariance matrix can be difficult to tune, and can vary for each application, so it is exposed as a configuration parameter. This matrix represents the noise we add to the total error after each prediction step. 
