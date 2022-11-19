@@ -10,7 +10,7 @@ publish_tf: true
 transform_time_offset: 0.1
 
 smooth_lagged_data: true
-dynamic_process_noise_covariance: true
+# dynamic_process_noise_covariance: true
 
 # publish_tf: true
 
@@ -22,8 +22,9 @@ odom0_config: [false, false, false,
                false, false, false]
                
 odom0_differential: true
-odom0_relative: true
-odom0_queue_size: 20
+# odom0_relative: true
+# odom0_queue_size: 20
+# odom0_rejection_threshold: 0.2
 
 imu0: /imu/data_raw
 imu0_config: [false, false, false,
@@ -34,8 +35,9 @@ imu0_config: [false, false, false,
 
 imu0_differential: true
 imu0_relative: true 
-imu0_queue_size: 20
+# imu0_queue_size: 20
 imu0_remove_gravitational_acceleration: false
+# imu0_rejection_threshold: 2
 
 # Since AMCL is more likely to fail than the beacons, you might want to treat the beacons
 # as a primary source, and set pose1_differential: true
@@ -48,10 +50,10 @@ pose0_config: [true,  true,  false,
                false, false, false,
                false, false, false]
 
-pose0_rejection_threshold: 3
+pose0_rejection_threshold: 2
 pose0_differential: true
 pose0_relative: true
-pose0_queue_size: 10
+# pose0_queue_size: 10
 
 pose1: amcl_pose # AMCL!
 pose1_config: [true,  true, false,
@@ -60,10 +62,10 @@ pose1_config: [true,  true, false,
                false, false, false,
                false, false, false]
 
-pose1_rejection_threshold: 2
-pose1_differential: true
-pose1_relative: true
-pose1_queue_size: 10
+pose1_rejection_threshold: 3
+# pose1_differential: true
+# pose1_relative: true
+# pose1_queue_size: 10
 
 # pose2: /odometry/imu
 # pose2_config: [true, true, false,
