@@ -11,6 +11,9 @@
 
     <node pkg="robot_localization" type="ekf_localization_node" name="robot_localization_map" clear_params="true">
         <rosparam file="$(find rovid_1)/params/EKF/robot_localization_map.yaml" command="load"/>
-        <!-- <remap from="odometry/filtered" to="odometry/map" /> -->
     </node>
+
+    <!-- <node pkg="robot_localization" type="ekf_localization_node" name="robot_localization_marvel" clear_params="true">
+        <rosparam file="$(find rovid_1)/params/EKF/robot_localization_marvel.yaml" command="load"/>
+    </node> -->
 </launch>

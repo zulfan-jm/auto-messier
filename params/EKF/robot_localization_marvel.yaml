@@ -1,6 +1,18 @@
 frequency: 30
-
 two_d_mode: true
+
+map_frame: map
+odom_frame: odom
+base_link_frame: base_link
+world_frame: map
+publish_tf: true
+
+transform_time_offset: 0.1
+
+smooth_lagged_data: true
+# dynamic_process_noise_covariance: true
+
+# publish_tf: true
 
 odom0: /odom
 odom0_config: [false, false, false,
@@ -9,9 +21,10 @@ odom0_config: [false, false, false,
                false, false, true,
                false, false, false]
                
-odom0_differential: true
-odom0_relative: true
-odom0_queue_size: 20
+# odom0_differential: true
+# odom0_relative: true
+# odom0_queue_size: 20
+# odom0_rejection_threshold: 0.2
 
 imu0: /imu/data_raw
 imu0_config: [false, false, false,
@@ -20,26 +33,59 @@ imu0_config: [false, false, false,
               false, false, true,
               true, false, false]
 
-imu0_differential: true
+# imu0_differential: true
 imu0_relative: true 
-imu0_queue_size: 20
+# imu0_queue_size: 20
 imu0_remove_gravitational_acceleration: false
+# imu0_rejection_threshold: 2
 
-# transform_time_offset: 0.1
+# Since AMCL is more likely to fail than the beacons, you might want to treat the beacons
+# as a primary source, and set pose1_differential: true
+# In that case, set x', y' and yaw' to true, and the rest to false!
 
-odom_frame: odom
-base_link_frame: base_link
-world_frame: odom
-publish_tf: true
-predict_to_current_time: true
-smooth_lagged_data: true
+pose0: hedge_pose # Hedgehog!
+pose0_config: [true,  true,  false,
+               false, false, false,
+               false, false, false,
+               false, false, false,
+               false, false, false]
 
-# pose0: hedge_pose # Hedgehog!
-# pose0_config: [true,  true,  false,
+pose0_rejection_threshold: 3
+# pose0_differential: true
+# pose0_relative: true
+# pose0_queue_size: 10
+
+pose1: amcl_pose # AMCL!
+pose1_config: [true,  true, false,
+               false, false, true,
+               false, false, false,
+               false, false, false,
+               false, false, false]
+
+pose1_rejection_threshold: 2
+pose1_differential: true
+# pose1_relative: true
+# pose1_queue_size: 10
+
+# pose2: /odometry/imu
+# pose2_config: [true, true, false,
 #                false, false, false,
 #                false, false, false,
 #                false, false, false,
 #                false, false, false]
+               
+# pose2_rejection_threshold: 0.5
+# pose2_differential: true
+# pose2_relative: true
+# pose2_queue_size: 20
+# poseN_rejection_threshold: (YOU MIGHT WANT THIS. If it's above the stated threshold value, the EKF will ignore the reading) (Defaults to numeric_limits<double>::max())
+
+# [ADVANCED] The process noise covariance matrix can be difficult to tune, and can vary for each application, so it is exposed as a configuration parameter. This matrix represents the noise we add to the total error after each prediction step. 
+
+# The better the omnidirectional motion model matches your system, the smaller these values can be. However, if users find that a given variable is slow to converge, one approach is to increase the process_noise_covariance diagonal value for the variable in question, which will cause the filter's predicted error to be larger, which will cause the filter to trust the incoming measurement more during correction. 
+
+# The values are ordered as x, y, z, roll, pitch, yaw, vx, vy, vz, vroll, vpitch, vyaw, ax, ay, az. 
+# Defaults to the matrix below if unspecified.
 
 # initial_state: [0.0,  0.0,  0.0,
 #                 0.0,  0.0,  0.0,
@@ -63,12 +109,17 @@ process_noise_covariance: [0.05, 0,    0,    0,    0,    0,    0,     0,     0, 
                            0,    0,    0,    0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0.01, 0,
                            0,    0,    0,    0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0.015]
 
-initial_estimate_covariance: [1e-9, 0,    0,    0,    0,    0,    0,    0,    0,    0,     0,     0,     0,    0,    0,
-                              0,    1e-9, 0,    0,    0,    0,    0,    0,    0,    0,     0,     0,     0,    0,    0,
+# [ADVANCED] This represents the initial value for the state estimate error covariance matrix. Setting a diagonal value (variance) to a large value will result in rapid convergence for initial measurements of the variable in question. Users should take care not to use large values for variables that will not be measured directly. 
+
+# The values are ordered as x, y, z, roll, pitch, yaw, vx, vy, vz, vroll, vpitch, vyaw, ax, ay, az.
+# Defaults to the matrix below if unspecified.
+
+initial_estimate_covariance: [1e-4, 0,    0,    0,    0,    0,    0,    0,    0,    0,     0,     0,     0,    0,    0,
+                              0,    1e-4, 0,    0,    0,    0,    0,    0,    0,    0,     0,     0,     0,    0,    0,
                               0,    0,    1e-9, 0,    0,    0,    0,    0,    0,    0,     0,     0,     0,    0,    0,
                               0,    0,    0,    1e-9, 0,    0,    0,    0,    0,    0,     0,     0,     0,    0,    0,
                               0,    0,    0,    0,    1e-9, 0,    0,    0,    0,    0,     0,     0,     0,    0,    0,
-                              0,    0,    0,    0,    0,    1e-9, 0,    0,    0,    0,     0,     0,     0,    0,    0,
+                              0,    0,    0,    0,    0,    1e-6, 0,    0,    0,    0,     0,     0,     0,    0,    0,
                               0,    0,    0,    0,    0,    0,    1e-9, 0,    0,    0,     0,     0,     0,    0,    0,
                               0,    0,    0,    0,    0,    0,    0,    1e-9, 0,    0,     0,     0,     0,    0,    0,
                               0,    0,    0,    0,    0,    0,    0,    0,    1e-9, 0,     0,     0,     0,    0,    0,
