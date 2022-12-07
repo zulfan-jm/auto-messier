@@ -54,8 +54,8 @@ public:
     hedge_imu_pub_.publish(imu_out_);
   }
 
-float last_x = 0;
-float last_y = 0;
+double last_x;
+double last_y;
 
 void pos_ang_callback(const marvelmind_nav::hedge_pos_ang::ConstPtr& pos_ang_msg)
   {
@@ -63,16 +63,16 @@ void pos_ang_callback(const marvelmind_nav::hedge_pos_ang::ConstPtr& pos_ang_msg
     pose_out_.header.stamp = ros::Time::now();
 
     // Populate position data
-    if(abs(last_x - pos_ang_msg->x_m) > 0.05) {
-      pose_out_.pose.pose.position.x = pos_ang_msg->x_m;
+    if(abs(last_x - pos_ang_msg->x_m) > 2) {
+      pose_out_.pose.pose.position.x = last_x;
       } else {
-        pose_out_.pose.pose.position.x = last_x;
+        pose_out_.pose.pose.position.x = pos_ang_msg->x_m;
       }
       
-    if(abs(last_y - pos_ang_msg->y_m) > 0.05) {
-      pose_out_.pose.pose.position.y = pos_ang_msg->y_m;
+    if(abs(last_y - pos_ang_msg->y_m) > 2) {
+      pose_out_.pose.pose.position.y = last_y
       } else {
-        pose_out_.pose.pose.position.y = last_y;
+        pose_out_.pose.pose.position.y = pos_ang_msg->y_m;
       }
 
     last_x = pose_out_.pose.pose.position.x;
