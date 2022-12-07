@@ -61,21 +61,25 @@ void pos_ang_callback(const marvelmind_nav::hedge_pos_ang::ConstPtr& pos_ang_msg
   {
     // Populate header
     pose_out_.header.stamp = ros::Time::now();
+
+    double current_x = pos_ang_msg->x_m;
+    double current_y = pos_ang_msg->y_m;
+
     if(last_x && last_y == 0){
-      last_x = pos_ang_msg->x_m;
-      last_y = pos_ang_msg->y_m;
-    }
+      last_x = current_x;
+      last_y = current_y;
+    y
     // Populate position data
-    if(abs(last_x - pos_ang_msg->x_m) > 2) {
+    if(abs(last_x - current_x) > 2) {
       pose_out_.pose.pose.position.x = last_x;
       } else {
-        pose_out_.pose.pose.position.x = pos_ang_msg->x_m;
+        pose_out_.pose.pose.position.x = current_x;
       }
       
-    if(abs(last_y - pos_ang_msg->y_m) > 2) {
+    if(abs(last_y - current_y) > 2) {
       pose_out_.pose.pose.position.y = last_y
       } else {
-        pose_out_.pose.pose.position.y = pos_ang_msg->y_m;
+        pose_out_.pose.pose.position.y = current_y;
       }
 
     last_x = pose_out_.pose.pose.position.x;
