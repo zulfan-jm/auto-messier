@@ -68,16 +68,16 @@ void pos_ang_callback(const marvelmind_nav::hedge_pos_ang::ConstPtr& pos_ang_msg
     if(last_x && last_y == 0){
       last_x = current_x;
       last_y = current_y;
-    y
+    }
     // Populate position data
-    if(abs(last_x - current_x) > 2) {
+    if(abs(last_x - current_x) > 0.02) {
       pose_out_.pose.pose.position.x = last_x;
       } else {
         pose_out_.pose.pose.position.x = current_x;
       }
       
-    if(abs(last_y - current_y) > 2) {
-      pose_out_.pose.pose.position.y = last_y
+    if(abs(last_y - current_y) > 0.02) {
+      pose_out_.pose.pose.position.y = last_y;
       } else {
         pose_out_.pose.pose.position.y = current_y;
       }
