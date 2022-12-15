@@ -8,7 +8,7 @@
         <param name="baud" value="576000"/>
     </node>
 
-    <node pkg="rovid_1" type="new_odom" name="odom_from_arduino">
+    <node pkg="rovid_1" type="node_odom" name="odom_from_arduino">
         <param name="publish_tf" value="$(arg use_odom_tf)"/>
         <param name="linear_scale_positive" value="1.0"/>
         <param name="linear_scale_negative" value="1.0"/>

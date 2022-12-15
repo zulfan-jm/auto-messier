@@ -110,7 +110,7 @@ generate_messages(
 catkin_package(
   CATKIN_DEPENDS message_runtime marvelmind_nav
  INCLUDE_DIRS include
- LIBRARIES rovit_navsys
+ LIBRARIES rovid_1
 #  CATKIN_DEPENDS roscpp rospy rviz
 #  DEPENDS system_lib
 )
@@ -139,8 +139,7 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable(odom_node src/odom_from_arduino.cpp)
-add_executable(new_odom src/new_odom.cpp)
+add_executable(node_odom src/new_odom.cpp)
 add_executable(hedge_msg_adapter src/hedge_msg_adapter.cpp)
 
 ## Rename C++ executable without prefix
@@ -155,8 +154,7 @@ add_executable(hedge_msg_adapter src/hedge_msg_adapter.cpp)
 # add_dependencies(hedge_msg_adapter marvelmind_nav_generate_messages_cpp)
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(odom_node ${catkin_LIBRARIES})
-target_link_libraries(new_odom ${catkin_LIBRARIES})
+target_link_libraries(node_odom ${catkin_LIBRARIES})
 target_link_libraries(hedge_msg_adapter ${catkin_LIBRARIES})
 
 #############
