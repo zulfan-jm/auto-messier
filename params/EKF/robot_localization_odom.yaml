@@ -9,9 +9,9 @@ odom0_config: [false, false, false,
                false, false, true,
                false, false, false]
                
-odom0_differential: true
-odom0_relative: true
-odom0_queue_size: 20
+odom0_differential: false
+odom0_relative: false
+odom0_queue_size: 10
 
 imu0: /imu/data_raw
 imu0_config: [false, false, false,
@@ -20,9 +20,9 @@ imu0_config: [false, false, false,
               false, false, true,
               true, false, false]
 
-imu0_differential: true
+imu0_differential: false
 imu0_relative: true 
-imu0_queue_size: 20
+imu0_queue_size: 10
 imu0_remove_gravitational_acceleration: false
 
 # transform_time_offset: 0.1

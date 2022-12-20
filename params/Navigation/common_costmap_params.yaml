@@ -26,14 +26,10 @@ obstacles_laser:
     observation_sources: laser
     laser: {data_type: LaserScan, clearing: true, marking: true, topic: scan, inf_is_valid: true}
 
-3d_obstacles:
-    observation_sources: laser
-    laser: {data_type: LaserScan, clearing: true, marking: true, topic: laserscan_kinect/scan, inf_is_valid: true}
-
 inflation_g:
-    inflation_radius: 0.65
-    cost_scaling_factor: 9.0
+    inflation_radius: 0.8          #0.65
+    cost_scaling_factor: 9.0       #9.0
     
 inflation_l:
-    inflation_radius: 0.65
+    inflation_radius: 0.8       #0.65
     cost_scaling_factor: 4.0

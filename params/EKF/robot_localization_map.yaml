@@ -7,7 +7,7 @@ base_link_frame: base_link
 world_frame: map
 publish_tf: true
 
-transform_time_offset: 0.1
+transform_time_offset: 0.0
 
 smooth_lagged_data: true
 # dynamic_process_noise_covariance: true
@@ -19,9 +19,9 @@ odom0_config: [false, false, false,
                false, false, true,
                false, false, false]
                
-# odom0_differential: true
-# odom0_relative: true
-# odom0_queue_size: 20
+odom0_differential: false
+odom0_relative: false
+odom0_queue_size: 10
 # odom0_rejection_threshold: 0.2
 
 imu0: /imu/data_raw
@@ -31,9 +31,9 @@ imu0_config: [false, false, false,
               false, false, true,
               true, false, false]
 
-# imu0_differential: true
+imu0_differential: false
 imu0_relative: true 
-# imu0_queue_size: 20
+imu0_queue_size: 10
 imu0_remove_gravitational_acceleration: false
 # imu0_rejection_threshold: 2
 
@@ -41,30 +41,30 @@ imu0_remove_gravitational_acceleration: false
 # as a primary source, and set pose1_differential: true
 # In that case, set x', y' and yaw' to true, and the rest to false!
 
-pose0: hedge_pose # Hedgehog!
-pose0_config: [true,  true,  false,
-               false, false, false,
-               false, false, false,
-               false, false, false,
-               false, false, false]
-
-pose0_rejection_threshold: 2
-pose0_differential: true
-# pose0_relative: true
-# pose0_queue_size: 10
-
-pose1: amcl_pose # AMCL!
-pose1_config: [true,  true, false,
+pose0: amcl_pose # AMCL!
+pose0_config: [true,  true, false,
                false, false, true,
                false, false, false,
                false, false, false,
                false, false, false]
 
-pose1_rejection_threshold: 3
-# pose1_differential: true
-# pose1_relative: true
-# pose1_queue_size: 10
+pose0_rejection_threshold: 3
+pose0_differential: true
+pose0_relative: true
+# pose0_queue_size: 10
 
+pose1: hedge_pose # Hedgehog!
+pose1_config: [true,  true,  false,
+               false, false, false,
+               false, false, false,
+               false, false, false,
+               false, false, false]
+
+pose1_rejection_threshold: 2
+pose1_differential: true
+pose1_relative: true
+
+# pose0_queue_size: 10
 # pose2: /odometry/imu
 # pose2_config: [true, true, false,
 #                false, false, false,
@@ -91,21 +91,21 @@ pose1_rejection_threshold: 3
 #                 0.0,  0.0,  0.0,
 #                 0.0,  0.0,  0.0]
 
-process_noise_covariance: [0.05, 0,    0,    0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
-                           0,    0.05, 0,    0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
+process_noise_covariance: [0.13, 0,    0,    0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
+                           0,    0.13, 0,    0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
                            0,    0,    0.06, 0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
-                           0,    0,    0,    0.03, 0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
-                           0,    0,    0,    0,    0.03, 0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
-                           0,    0,    0,    0,    0,    0.06, 0,     0,     0,    0,    0,    0,    0,    0,    0,
-                           0,    0,    0,    0,    0,    0,    0.025, 0,     0,    0,    0,    0,    0,    0,    0,
-                           0,    0,    0,    0,    0,    0,    0,     0.025, 0,    0,    0,    0,    0,    0,    0,
-                           0,    0,    0,    0,    0,    0,    0,     0,     0.04, 0,    0,    0,    0,    0,    0,
-                           0,    0,    0,    0,    0,    0,    0,     0,     0,    0.01, 0,    0,    0,    0,    0,
-                           0,    0,    0,    0,    0,    0,    0,     0,     0,    0,    0.01, 0,    0,    0,    0,
+                           0,    0,    0,    0.06, 0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
+                           0,    0,    0,    0,    0.06, 0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
+                           0,    0,    0,    0,    0,    0.02, 0,     0,     0,    0,    0,    0,    0,    0,    0,
+                           0,    0,    0,    0,    0,    0,    0.06,  0,     0,    0,    0,    0,    0,    0,    0,
+                           0,    0,    0,    0,    0,    0,    0,     0.06,  0,    0,    0,    0,    0,    0,    0,
+                           0,    0,    0,    0,    0,    0,    0,     0,     0.06, 0,    0,    0,    0,    0,    0,
+                           0,    0,    0,    0,    0,    0,    0,     0,     0,    0.06, 0,    0,    0,    0,    0,
+                           0,    0,    0,    0,    0,    0,    0,     0,     0,    0,    0.06, 0,    0,    0,    0,
                            0,    0,    0,    0,    0,    0,    0,     0,     0,    0,    0,    0.02, 0,    0,    0,
-                           0,    0,    0,    0,    0,    0,    0,     0,     0,    0,    0,    0,    0.01, 0,    0,
-                           0,    0,    0,    0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0.01, 0,
-                           0,    0,    0,    0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0.015]
+                           0,    0,    0,    0,    0,    0,    0,     0,     0,    0,    0,    0,    0.02, 0,    0,
+                           0,    0,    0,    0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0.06, 0,
+                           0,    0,    0,    0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0.06]
 
 # [ADVANCED] This represents the initial value for the state estimate error covariance matrix. Setting a diagonal value (variance) to a large value will result in rapid convergence for initial measurements of the variable in question. Users should take care not to use large values for variables that will not be measured directly. 
 
