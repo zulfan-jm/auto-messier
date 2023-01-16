@@ -5,7 +5,8 @@
     <arg name="use_filebag" default="false"/>
     <arg name="use_autonav" default="false"/>
 
-    <arg name="map_file" value="$(find rovid_1)/maps/map_lobbyandhall_stairs.yaml"/>
+    <!-- <arg name="map_file" value="$(find rovid_1)/maps/map_lobbyandhall_stairs.yaml"/> -->
+    <arg name="map_file" value="$(find rovid_1)/maps/map-4-rooms.yaml"/>
     <node pkg="map_server" type="map_server" name="map_server" args="$(arg map_file)"/>
 
     <include file="$(find rovid_1)/launch/tf/tf_transforms.launch"/>
