@@ -30,12 +30,12 @@ DWAPlannerROS:
 
 # Goal Tolerance Parametes
   xy_goal_tolerance: 0.35
-  yaw_goal_tolerance: 0.3
+  yaw_goal_tolerance: 0.2
   latch_xy_goal_tolerance: false
 
 # Forward Simulation Parameters
-  # sim_time: 3.0                  # The amount of time to forward-simulate trajectories in seconds
-  sim_time: 1.5                    # Untuk penyesuaian jalan sempit
+  sim_time: 3.0                  # The amount of time to forward-simulate trajectories in seconds
+  # sim_time: 1.5                    # Untuk penyesuaian jalan sempit
   sim_granularity: 0.025           # The step size, in meters, to take between points on a given trajectory
   
   vx_samples: 30                   # The number of samples to use when exploring the x velocity space

@@ -1,5 +1,5 @@
 allow_unknown: true
-use_dijkstra : false
+use_dijkstra : true
 use_quadratic: true
 use_grid_path: false
 old_navfn_behavior: false
